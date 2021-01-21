@@ -10,9 +10,9 @@ GOARCH=amd64
 WORKDIR /build
 
 # Copy and download dependency using go mod
-COPY go.mod .
+#COPY go.mod .
 #COPY go.sum .
-RUN go mod download
+#RUN go mod download
 
 # Copy the code into the container
 COPY . .
@@ -30,4 +30,4 @@ RUN cp /build/main .
 EXPOSE 8080
 
 # Command to run when starting the container
-CMD ["main"]
+CMD ["/dist/main"]
